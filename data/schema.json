@@ -1,0 +1,16 @@
+{
+  "profisional": {
+    "nome": "Diego Fernandes",
+    "empresa": "Rocketseat",
+    "cidade": "São paulo",
+    "cep": "15.654-000",
+    "especialidade": ["ReactJs", "NodeJs"]
+  },
+  "escola": {
+    "nome": "Escola municipal de são paulo",
+    "responsavel": "Fulano da silva",
+    "numeroTotalDeAlunos": 200,
+    "end": "Rua 9 de julho",
+    "cidade": "São Paulo"
+  }
+}
