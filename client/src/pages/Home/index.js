@@ -1,7 +1,15 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { Container, Content } from "./styles";
+import Aside from "../../components/Aside";
 
 export default function Home() {
-  return <div />;
+  return (
+    <Container>
+      {/* <Aside /> */}
+      <Content>
+        <h1>Content</h1>
+      </Content>
+    </Container>
+  );
 }
