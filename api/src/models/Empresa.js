@@ -25,7 +25,11 @@ const EmpresaSchema = new mongoose.Schema({
   especialidade: {
     type: Array,
     required: true
-  },  
+  },
+  email:{
+    type: String,
+    required:true
+  },
   createdAt: {
     type: Date,
     default: Date.now
