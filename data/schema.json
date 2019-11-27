@@ -10,7 +10,8 @@
     "nome": "Escola municipal de são paulo",
     "responsavel": "Fulano da silva",
     "numeroTotalDeAlunos": 200,
-    "end": "Rua 9 de julho",
-    "cidade": "São Paulo"
+    "cidade": "São Paulo",
+    "bairro": "A",
+    "cep":"15.654-000"
   }
 }
