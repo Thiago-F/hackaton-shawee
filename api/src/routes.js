@@ -21,4 +21,8 @@ routes.get('/visitacoes/escola/:id', VisitacaoControlador.showEscola);
 routes.put('/visitacoes/:id', VisitacaoControlador.update);
 routes.delete('/visitacoes/:id', VisitacaoControlador.destroy);
 
+const UserController = require('./controllers/UserController');
+routes.get('/login/escola/:email',UserController.store);
+routes.get('/login/empresa/:email',UserController.store2);
+
 module.exports = routes;
