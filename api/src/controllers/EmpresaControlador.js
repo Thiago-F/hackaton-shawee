@@ -3,8 +3,23 @@ const Empresa = mongoose.model('Empresa');
 
 module.exports = {
     async index (req, res) {
-        const {page = 1} = req.query;
-        const empresas = await Empresa.paginate({}, {page, limit: 10});
+        const {cidade, bairro, cep, page = 1} = req.query;
+        let empresas = '';
+        if (cidade && !bairro && !cep) {
+            empresas = await Empresa.paginate({ cidade }, {page, limit: 10});
+        } else if (!cidade && bairro && !cep) {
+            empresas = await Empresa.paginate({ bairro }, {page, limit: 10});
+        } else if (!cidade && !bairro && cep) {
+            empresas = await Empresa.paginate({ cep }, {page, limit: 10});
+        } else if (cidade && bairro && !cep) {
+            empresas = await Empresa.paginate({ cidade, bairro }, {page, limit: 10})
+        } else if (cidade && !bairro && cep) {
+            empresas = await Empresa.paginate({ cidade, cep }, {page, limit: 10});
+        } else if (!cidade && bairro && cep) {
+            empresas = await Empresa.paginate({ bairro, cep }, {page, limit: 10});
+        } else if (cidade && bairro && cep) {
+            empresas = await Empresa.paginate({ cidade, bairro, cep }, {page, limit: 10})
+        }
         return res.json(empresas);
     },
     async show(req, res) {
