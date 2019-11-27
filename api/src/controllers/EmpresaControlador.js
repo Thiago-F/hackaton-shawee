@@ -30,24 +30,23 @@ module.exports = {
         return res.json(empresa);
     },
     async store(req, res) {
-        const {
-            nome, empresa, cidade, bairro, cep, especialidade, email
-          } = req.body;
-           //return res.json(req.body);
-          const { filename: image } = req.file;
-          const [name] = image.split('.');
-          const fileName = `${name}.jpg`;
-          await Sharp(req.file.path)
+        const {nome, empresa, cidade, bairro, cep, especialidade, email} = req.body;
+        const especialidades = especialidade.split(',');
+          
+        const { filename: image } = req.file;
+        const [name] = image.split('.');
+        const fileName = `${name}.jpg`;
+        await Sharp(req.file.path)
             .resize(500)
             .jpeg({ quality: 70 })
             .toFile(
-              path.resolve(req.file.destination, 'resized', fileName),
+                path.resolve(req.file.destination, 'resized', fileName),
             );
-          fs.unlinkSync(req.file.path);
-          const empresa1 = await Empresa.create({
-            nome, empresa, cidade, bairro, cep, especialidade, email, image: fileName,
-          });
-          return res.json(empresa1);
+        fs.unlinkSync(req.file.path);
+        const empresa1 = await Empresa.create({
+            nome, empresa, cidade, bairro, cep, especialidade: especialidades, email, image: fileName,
+        });
+        return res.json(empresa1);
     },
     async destroy(req, res) {
         const empresa = await Empresa.findByIdAndRemove(req.params.id);
