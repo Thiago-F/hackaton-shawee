@@ -8,7 +8,12 @@ import {
   DivButton,
   Button
 } from "./styled";
-export default function Login() {
+export default function Login({ history }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    history.push("/escola");
+  }
+
   return (
     <DivContainer>
       <DivContant>
@@ -21,7 +26,7 @@ export default function Login() {
           />
           <DivButton>
             <Button>Cadastrar</Button>
-            <Button>Entrar</Button>
+            <Button onClick={handleSubmit}>Entrar</Button>
           </DivButton>
         </Form>
       </DivContant>

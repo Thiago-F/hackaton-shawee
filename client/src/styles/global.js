@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import bground from "../assets/background3.jpg";
 
 export default createGlobalStyle`
     *{
@@ -9,11 +10,13 @@ export default createGlobalStyle`
     }
     html, body, #root {
         min-height : 100%;
+
     }
     body {
         min-height : 100%;
-        background : #fff;
+        background: #000 url(${bground}) no-repeat;
         -webkit-font-smoothing : antialiased !important;
+        background-size: cover;
     }
     body, input, button {
         color: #222;
