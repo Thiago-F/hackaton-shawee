@@ -24,9 +24,13 @@ const EmpresaSchema = new mongoose.Schema({
   },
   especialidade: {
     type: Array,
-    required: true
+    required: false
   },
   email:{
+    type: String,
+    required:true
+  },
+  image:{
     type: String,
     required:true
   },

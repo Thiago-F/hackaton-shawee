@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const Sharp = require('Sharp');
+const path = require('path');
+const fs = require('fs');
 const Empresa = mongoose.model('Empresa');
 
 module.exports = {
@@ -27,8 +30,24 @@ module.exports = {
         return res.json(empresa);
     },
     async store(req, res) {
-        const empresa = await Empresa.create(req.body);
-        return res.json(empresa);
+        const {
+            nome, empresa, cidade, bairro, cep, especialidade, email
+          } = req.body;
+           //return res.json(req.body);
+          const { filename: image } = req.file;
+          const [name] = image.split('.');
+          const fileName = `${name}.jpg`;
+          await Sharp(req.file.path)
+            .resize(500)
+            .jpeg({ quality: 70 })
+            .toFile(
+              path.resolve(req.file.destination, 'resized', fileName),
+            );
+          fs.unlinkSync(req.file.path);
+          const empresa1 = await Empresa.create({
+            nome, empresa, cidade, bairro, cep, especialidade, email, image: fileName,
+          });
+          return res.json(empresa1);
     },
     async destroy(req, res) {
         const empresa = await Empresa.findByIdAndRemove(req.params.id);
