@@ -6,68 +6,62 @@ export const DivContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    padding: 20px;
 `;
 
 export const DivContant = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
+    flex-direction: column;
+    max-width: 50%;
     max-height: 300px;
     height: 100%;
     width: 100%;
     background: #fff;
     border-radius: 8px;
-`;
-
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     padding: 20px;
 `;
 
-export const LabelLogin = styled.label`
-    font-size: 14px;
-    color: #444;
-    font-weight: bold;
-    margin-bottom: 8px;
+export const Ul = styled.ul`
+    width: 100%;
+    list-style: none;
+    display: flex;
+    margin-left: 30px;
 `;
 
-export const InputEmail = styled.input`
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    height: 45px;
-    padding: 0 15px;
-    font-size: 16px;
+export const Li = styled.li`
+    display: flex;
+    flex-direction: column;
     width: 100%;
+`;
+
+export const Strong = styled.strong`
+    font-size: 24px;
+    color: #444;
+    margin: 10px;
+`;
+
+export const Label = styled.label`
+    margin-top: 10px;
+    font-size: 24px;
+    color: #444;
+    /* font-size: 15px; */
+    color: #999;
 `;
 
 export const Button = styled.button`
-    display: flex;
     border: 0;
     border-radius: 5px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    width: 30%;
     height: 42px;
     padding: 0 20px;
     font-size: 16px;
     font-weight: bold;
     background: #000080;
     color: #fff;
-    margin: 5px;
+    margin-top: 30px;
     cursor: pointer;
 
     :hover {
         background: #4169e1;
     }
-`;
-
-export const DivButton = styled.div`
-    display: flex;
-    flex: wrap;
-    justify-content: space-between;
 `;

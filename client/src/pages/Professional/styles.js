@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import bground from '../../assets/background3.jpg';
 
 export const Container = styled.div`
     display: flex;
@@ -7,7 +8,7 @@ export const Container = styled.div`
 
     height: 100vh;
     width: 100%;
-    background-color: #000080;
+    background: #000 url(${bground}) fixed;
 
     .link {
         text-decoration: none !important;
